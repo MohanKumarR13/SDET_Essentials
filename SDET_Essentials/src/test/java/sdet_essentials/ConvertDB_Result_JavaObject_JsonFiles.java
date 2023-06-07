@@ -17,16 +17,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 //2.Create Statement / Query
 //3.Excecute Query then Store the Results
 //4.Print Results
-public class ConvertDB_Result_JavaObject2 {
+public class ConvertDB_Result_JavaObject_JsonFiles {
 
 	public static void main(String[] args) throws SQLException, StreamWriteException, DatabindException, IOException {
 		// TODO Auto-generated method stub
 		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/world", "root", "root");
 		Statement statement = connection.createStatement();
 		String s = "Select * From countrylanguage";
-
+		ArrayList<Country_Language>country_LanguagesList=new ArrayList<Country_Language>();
 		ResultSet resultSet = statement.executeQuery(s);
-		ArrayList<Country_Language> country_LanguageList = new ArrayList<Country_Language>();
 		while (resultSet.next()) {
 			String CountryCode = resultSet.getString("CountryCode");
 			String Language = resultSet.getString("Language");
@@ -37,14 +36,13 @@ public class ConvertDB_Result_JavaObject2 {
 			country_Language.setLanguage(Language);
 			country_Language.setIsOfficial(IsOfficial);
 			country_Language.setPercentage(Percentage);
-			country_LanguageList.add(country_Language);
+			country_LanguagesList.add(country_Language);
 		}
-		for (int i = 0; i < country_LanguageList.size(); i++) {
-			File jsonFile = new File(
-					"C:\\Users\\91995\\git\\SDET_Essentials\\SDET_Essentials\\CountryLanguage" + i + "+.json");
-			ObjectMapper objectMapper = new ObjectMapper();
-			objectMapper.writeValue(jsonFile, country_LanguageList.get(i));
-		}
+	for(int i=0;i<country_LanguagesList.size();i++) {
+		File jsonFile = new File("C:\\Users\\91995\\git\\SDET_Essentials\\SDET_Essentials\\CountryLanguage"+i+".json");
+		ObjectMapper objectMapper = new ObjectMapper();
+		objectMapper.writeValue(jsonFile, country_LanguagesList.get(i));
+	}
 		connection.close();
 		System.out.println("Done");
 	}
