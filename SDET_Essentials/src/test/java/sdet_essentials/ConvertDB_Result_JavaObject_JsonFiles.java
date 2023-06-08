@@ -23,7 +23,7 @@ public class ConvertDB_Result_JavaObject_JsonFiles {
 		// TODO Auto-generated method stub
 		Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/world", "root", "root");
 		Statement statement = connection.createStatement();
-		String s = "Select * From countrylanguage";
+		String s = "Select * From countrylanguage limit 1";
 		ArrayList<Country_Language>country_LanguagesList=new ArrayList<Country_Language>();
 		ResultSet resultSet = statement.executeQuery(s);
 		while (resultSet.next()) {
