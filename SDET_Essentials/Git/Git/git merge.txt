@@ -1,0 +1,247 @@
+master --> a.txt b.txt
+feature --> x.txt y.txt
+ 
+Master
+git merge feature
+Fast-forward merge
+------------------
+
+LENOVO@jeevi MINGW64 /e/Gitproj
+$ git init
+Initialized empty Git repository in E:/Gitproj/.git/
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ touch a.txt b.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git add a.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git commit -m 'a.txt'
+[master (root-commit) 8ec8697] a.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 a.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git add b.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git commit -m 'b.txt'
+[master 28cd7e2] b.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 b.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git log --online
+fatal: unrecognized argument: --online
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git log --oneline
+28cd7e2 (HEAD -> master) b.txt
+8ec8697 a.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git branch feature
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git branch
+  feature
+* master
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git checkout feature
+Switched to branch 'feature'
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git branch
+* feature
+  master
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ touch x.txt y.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git add x.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git commit -m 'x.txt'
+[feature e1eef0e] x.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 x.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git add y.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git commit -m 'y.txt'
+[feature 6d2c6d5] y.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 y.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ ls
+a.txt  b.txt  x.txt  y.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git log --oneline
+6d2c6d5 (HEAD -> feature) y.txt
+e1eef0e x.txt
+28cd7e2 (master) b.txt
+8ec8697 a.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git checkout master
+Switched to branch 'master'
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git branch
+  feature
+* master
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git merge feature
+Updating 28cd7e2..6d2c6d5
+Fast-forward
+ x.txt | 0
+ y.txt | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 x.txt
+ create mode 100644 y.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ ls
+a.txt  b.txt  x.txt  y.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git log --oneline
+6d2c6d5 (HEAD -> master, feature) y.txt
+e1eef0e x.txt
+28cd7e2 b.txt
+8ec8697 a.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$
+
+Three way merge
+-----------------
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git
+$ git init
+Initialized empty Git repository in E:/Movies/Hollywood/Git/.git/
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (master)
+$ touch a.txt b.txt
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (master)
+$ git add a.txt;git commit -m ''a.txt
+[master (root-commit) 378288e] a.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 a.txt
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (master)
+$ git add b.txt;git commit -m ''b.txt
+[master 995b79f] b.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 b.txt
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (master)
+$ git log --oneline
+995b79f (HEAD -> master) b.txt
+378288e a.txt
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (master)
+$ git branch
+* master
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (master)
+$ git branch feature
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (master)
+$ git checkout feature
+Switched to branch 'feature'
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (feature)
+$
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (feature)
+$
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (feature)
+$ git branch
+* feature
+  master
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (feature)
+$ touch x.txt y.txt
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (feature)
+$ git add x.txt;git commit -m ''x.txt
+[feature b5b9377] x.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 x.txt
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (feature)
+$ git add y.txt;git commit -m ''y.txt
+[feature 872dfe7] y.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 y.txt
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (feature)
+$ git log --oneline
+872dfe7 (HEAD -> feature) y.txt
+b5b9377 x.txt
+995b79f (master) b.txt
+378288e a.txt
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (feature)
+$ git checkout master
+Switched to branch 'master'
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (master)
+$ ls
+a.txt  b.txt
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (master)
+$ git log --oneline
+995b79f (HEAD -> master) b.txt
+378288e a.txt
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (master)
+$ touch c.txt
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (master)
+$ git add c.txt;git commit -m ''c.txt
+[master 8511a16] c.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 c.txt
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (master)
+$ ls
+a.txt  b.txt  c.txt
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (master)
+$ git branch
+  feature
+* master
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (master)
+$ git merge feature
+Merge made by the 'ort' strategy.
+ x.txt | 0
+ y.txt | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 x.txt
+ create mode 100644 y.txt
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (master)
+$ git log --oneline
+f7b3332 (HEAD -> master) Merge branch 'feature'
+8511a16 c.txt
+872dfe7 (feature) y.txt
+b5b9377 x.txt
+995b79f b.txt
+378288e a.txt
+
+LENOVO@jeevi MINGW64 /e/Movies/Hollywood/Git (master)
+$
+

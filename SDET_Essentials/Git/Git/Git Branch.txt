@@ -1,0 +1,291 @@
+Git Branch Commands
+---------------------
+1.To View Avalabe Branch
+git branch
+git status
+2.Create New Branch
+git branch branchnames
+3.Switch to from one branch to another branch
+git checkout===>discard unstaged changes in working directory
+git checkout branch_name
+
+creating and switching to branch
+git checkout -b branchname
+
+git  branch showing all branch
+git branch branch name
+git checkout branch name
+git checkout -b branch name
+
+---------------------------------------------------------------------------
+LENOVO@jeevi MINGW64 /e/Gitproj
+$ git init
+Initialized empty Git repository in E:/Gitproj/.git/
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ touch a.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ ls
+a.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git add a.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git commit -. 'a.txt'
+error: unknown switch `.'
+usage: git commit [-a | --interactive | --patch] [-s] [-v] [-u<mode>] [--amend]
+                  [--dry-run] [(-c | -C | --squash) <commit> | --fixup [(amend|reword):]<commit>)]
+                  [-F <file> | -m <msg>] [--reset-author] [--allow-empty]
+                  [--allow-empty-message] [--no-verify] [-e] [--author=<author>]
+                  [--date=<date>] [--cleanup=<mode>] [--[no-]status]
+                  [-i | -o] [--pathspec-from-file=<file> [--pathspec-file-nul]]
+                  [(--trailer <token>[(=|:)<value>])...] [-S[<keyid>]]
+                  [--] [<pathspec>...]
+
+    -q, --quiet           suppress summary after successful commit
+    -v, --verbose         show diff in commit message template
+
+Commit message options
+    -F, --file <file>     read message from file
+    --author <author>     override author for commit
+    --date <date>         override date for commit
+    -m, --message <message>
+                          commit message
+    -c, --reedit-message <commit>
+                          reuse and edit message from specified commit
+    -C, --reuse-message <commit>
+                          reuse message from specified commit
+    --fixup [(amend|reword):]commit
+                          use autosquash formatted message to fixup or amend/reword specified commit
+    --squash <commit>     use autosquash formatted message to squash specified commit
+    --reset-author        the commit is authored by me now (used with -C/-c/--amend)
+    --trailer <trailer>   add custom trailer(s)
+    -s, --signoff         add a Signed-off-by trailer
+    -t, --template <file>
+                          use specified template file
+    -e, --edit            force edit of commit
+    --cleanup <mode>      how to strip spaces and #comments from message
+    --status              include status in commit message template
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+Commit contents options
+    -a, --all             commit all changed files
+    -i, --include         add specified files to index for commit
+    --interactive         interactively add files
+    -p, --patch           interactively add changes
+    -o, --only            commit only specified files
+    -n, --no-verify       bypass pre-commit and commit-msg hooks
+    --dry-run             show what would be committed
+    --short               show status concisely
+    --branch              show branch information
+    --ahead-behind        compute full ahead/behind values
+    --porcelain           machine-readable output
+    --long                show status in long format (default)
+    -z, --null            terminate entries with NUL
+    --amend               amend previous commit
+    --no-post-rewrite     bypass post-rewrite hook
+    -u, --untracked-files[=<mode>]
+                          show untracked files, optional modes: all, normal, no. (Default: all)
+    --pathspec-from-file <file>
+                          read pathspec from file
+    --pathspec-file-nul   with --pathspec-from-file, pathspec elements are separated with NUL character
+
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git commit -m 'a.txt'
+[master (root-commit) ae532ff] a.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 a.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git branch
+* master
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git branch
+* master
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git branch br1
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git branch
+  br1
+* master
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git checkout br1
+Switched to branch 'br1'
+
+LENOVO@jeevi MINGW64 /e/Gitproj (br1)
+$ git branch
+* br1
+  master
+
+LENOVO@jeevi MINGW64 /e/Gitproj (br1)
+$ git checkout -b br2
+Switched to a new branch 'br2'
+
+LENOVO@jeevi MINGW64 /e/Gitproj (br2)
+$ git branch
+  br1
+* br2
+  master
+
+LENOVO@jeevi MINGW64 /e/Gitproj (br2)
+$ git checkout master
+Switched to branch 'master'
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git branch
+  br1
+  br2
+* master
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ ls
+a.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ touch b.txt c.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ ls
+a.txt  b.txt  c.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git add b.txt;git commit -m 'b.txt';
+[master 3678676] b.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 b.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git add c.txt;git commit -m 'c.txt';
+[master b876485] c.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 c.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git ls-files
+a.txt
+b.txt
+c.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git log --oneline
+b876485 (HEAD -> master) c.txt
+3678676 b.txt
+ae532ff (br2, br1) a.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ ls
+a.txt  b.txt  c.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git checkout br1
+Switched to branch 'br1'
+
+LENOVO@jeevi MINGW64 /e/Gitproj (br1)
+$ ls
+a.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (br1)
+$ git log
+commit ae532ff769301c202c3df78a330b6145ce254b17 (HEAD -> br1, br2)
+Author: MohanKumarR13 <svgvedha@gmail.com>
+Date:   Sun Aug 13 10:16:51 2023 +0530
+
+    a.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (br1)
+$ git branch
+* br1
+  br2
+  master
+
+LENOVO@jeevi MINGW64 /e/Gitproj (br1)
+$ touch x.txt y.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (br1)
+$ git add x.txt;git commit -m 'y.txt';
+[br1 afd2306] y.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 x.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (br1)
+$ git add y.txt;git commit -m 'y.txt';
+[br1 18777e8] y.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 y.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (br1)
+$ ls
+a.txt  x.txt  y.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (br1)
+$ git checkout master
+Switched to branch 'master'
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ ls
+a.txt  b.txt  c.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git branch
+  br1
+  br2
+* master
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git checkout br1
+Switched to branch 'br1'
+
+LENOVO@jeevi MINGW64 /e/Gitproj (br1)
+$ ls
+a.txt  x.txt  y.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (br1)
+$ git checkout master
+Switched to branch 'master'
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ ls
+a.txt  b.txt  c.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ touch d.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git add d.txt;git commit -m 'd.txt';
+[master a030e3b] d.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 d.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ ls
+a.txt  b.txt  c.txt  d.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git checkout br1
+Switched to branch 'br1'
+
+LENOVO@jeevi MINGW64 /e/Gitproj (br1)
+$ ls
+a.txt  x.txt  y.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (br1)
+$
+

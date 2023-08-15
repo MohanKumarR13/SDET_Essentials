@@ -1,0 +1,50 @@
+LENOVO@jeevi MINGW64 /d/Movies/Git_Project 1
+$ git init
+Initialized empty Git repository in D:/Movies/Git_Project 1/.git/
+
+LENOVO@jeevi MINGW64 /d/Movies/Git_Project 1 (master)
+$ vim index.txt
+
+LENOVO@jeevi MINGW64 /d/Movies/Git_Project 1 (master)
+$ git add index.txt
+warning: in the working copy of 'index.txt', LF will be replaced by CRLF the next time Git touches it
+
+LENOVO@jeevi MINGW64 /d/Movies/Git_Project 1 (master)
+$ ls
+index.txt
+
+LENOVO@jeevi MINGW64 /d/Movies/Git_Project 1 (master)
+$ git ls-files
+index.txt
+
+LENOVO@jeevi MINGW64 /d/Movies/Git_Project 1 (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   index.txt
+
+
+LENOVO@jeevi MINGW64 /d/Movies/Git_Project 1 (master)
+$ ls
+index.txt
+
+LENOVO@jeevi MINGW64 /d/Movies/Git_Project 1 (master)
+$ git ls-files
+index.txt
+
+LENOVO@jeevi MINGW64 /d/Movies/Git_Project 1 (master)
+$ git reset index.txt
+
+LENOVO@jeevi MINGW64 /d/Movies/Git_Project 1 (master)
+$ ls
+index.txt
+
+LENOVO@jeevi MINGW64 /d/Movies/Git_Project 1 (master)
+$ git ls-files
+
+LENOVO@jeevi MINGW64 /d/Movies/Git_Project 1 (master)
+$

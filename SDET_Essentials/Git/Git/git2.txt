@@ -1,0 +1,94 @@
+
+LENOVO@jeevi MINGW64 /d/SampleProject
+$ vim file1.txt
+
+LENOVO@jeevi MINGW64 /d/SampleProject
+$ vim file2.txt
+
+LENOVO@jeevi MINGW64 /d/SampleProject
+$ vim file3.txt
+
+LENOVO@jeevi MINGW64 /d/SampleProject
+$ ls
+file1.txt  file2.txt  file3.txt
+
+LENOVO@jeevi MINGW64 /d/SampleProject
+$ git init
+Initialized empty Git repository in D:/SampleProject/.git/
+
+LENOVO@jeevi MINGW64 /d/SampleProject (master)
+$ git add .
+warning: in the working copy of 'file1.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'file2.txt', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'file3.txt', LF will be replaced by CRLF the next time Git touches it
+
+LENOVO@jeevi MINGW64 /d/SampleProject (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file1.txt
+        new file:   file2.txt
+        new file:   file3.txt
+
+
+LENOVO@jeevi MINGW64 /d/SampleProject (master)
+$ git commit -m '3 files commit round1'
+[master (root-commit) 51516e7] 3 files commit round1
+ 3 files changed, 3 insertions(+)
+ create mode 100644 file1.txt
+ create mode 100644 file2.txt
+ create mode 100644 file3.txt
+
+LENOVO@jeevi MINGW64 /d/SampleProject (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+LENOVO@jeevi MINGW64 /d/SampleProject (master)
+$ ls
+file1.txt  file2.txt  file3.txt
+
+LENOVO@jeevi MINGW64 /d/SampleProject (master)
+$ git ls-files
+file1.txt
+file2.txt
+file3.txt
+
+LENOVO@jeevi MINGW64 /d/SampleProject (master)
+$ git rm file1.txt
+rm 'file1.txt'
+
+LENOVO@jeevi MINGW64 /d/SampleProject (master)
+$ git ls-files
+file2.txt
+file3.txt
+
+LENOVO@jeevi MINGW64 /d/SampleProject (master)
+$ git rm --cached file2.txt
+rm 'file2.txt'
+
+LENOVO@jeevi MINGW64 /d/SampleProject (master)
+$ ls
+file2.txt  file3.txt
+
+LENOVO@jeevi MINGW64 /d/SampleProject (master)
+$ git ls-files
+file3.txt
+
+LENOVO@jeevi MINGW64 /d/SampleProject (master)
+$ rm file3.txt
+
+LENOVO@jeevi MINGW64 /d/SampleProject (master)
+$ ls
+file2.txt
+
+LENOVO@jeevi MINGW64 /d/SampleProject (master)
+$ git ls-files
+file3.txt
+
+LENOVO@jeevi MINGW64 /d/SampleProject (master)
+$

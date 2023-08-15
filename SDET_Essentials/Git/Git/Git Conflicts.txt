@@ -1,0 +1,193 @@
+LENOVO@jeevi MINGW64 /e/Gitproj
+$ git init
+Initialized empty Git repository in E:/Gitproj/.git/
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ vim test.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git add test.txt;git commit -m 'MC1'
+warning: in the working copy of 'test.txt', LF will be replaced by CRLF the next time Git touches it
+[master (root-commit) 4321569] MC1
+ 1 file changed, 2 insertions(+)
+ create mode 100644 test.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ cat test.txt
+first line
+
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ vim test.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git add test.txt;git commit -m 'MC2'
+warning: in the working copy of 'test.txt', LF will be replaced by CRLF the next time Git touches it
+[master 465b101] MC2
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ cat test.txt
+
+second line
+
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ vim test.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git add test.txt;git commit -m 'MC2'
+warning: in the working copy of 'test.txt', LF will be replaced by CRLF the next time Git touches it
+[master 60e3495] MC2
+ 1 file changed, 1 insertion(+)
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ cat test.txt
+
+first line
+second line
+
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git log --oneline
+60e3495 (HEAD -> master) MC2
+465b101 MC2
+4321569 MC1
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git branch feature
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git checkout feature
+Switched to branch 'feature'
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git log --oneline
+60e3495 (HEAD -> feature, master) MC2
+465b101 MC2
+4321569 MC1
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ vim test.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ cat test.txt
+
+
+first line
+second line
+added new line by feature
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git add test.txt;git commit -m 'FC1'
+warning: in the working copy of 'test.txt', LF will be replaced by CRLF the next time Git touches it
+[feature ad3ec16] FC1
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git log --oneline
+ad3ec16 (HEAD -> feature) FC1
+60e3495 (master) MC2
+465b101 MC2
+4321569 MC1
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git checkout master
+Switched to branch 'master'
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ cat test.txt
+
+first line
+second line
+
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ vim test.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git add test.txt;git commit -m 'MC3'
+[master 9a78b13] MC3
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git log --oneline
+9a78b13 (HEAD -> master) MC3
+60e3495 MC2
+465b101 MC2
+4321569 MC1
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git merge feature
+Auto-merging test.txt
+CONFLICT (content): Merge conflict in test.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master|MERGING)
+$ cat test.txt
+
+
+first line
+second line
+<<<<<<< HEAD
+added new line by master
+=======
+added new line by feature
+>>>>>>> feature
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master|MERGING)
+$ vim test.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master|MERGING)
+$ cat test.txt
+
+
+first line
+second line
+added new line by master
+added new line by feature
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master|MERGING)
+$ git add test.txt;git commit -m 'MC'
+[master 61fbe2d] MC
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git log --oneline
+61fbe2d (HEAD -> master) MC
+9a78b13 MC3
+ad3ec16 (feature) FC1
+60e3495 MC2
+465b101 MC2
+4321569 MC1
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git log --oneline --graph
+*   61fbe2d (HEAD -> master) MC
+|\
+| * ad3ec16 (feature) FC1
+* | 9a78b13 MC3
+|/
+* 60e3495 MC2
+* 465b101 MC2
+* 4321569 MC1
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git branch
+  feature
+* master
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git branch -d feature
+Deleted branch feature (was ad3ec16).
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git log --oneline
+61fbe2d (HEAD -> master) MC
+9a78b13 MC3
+ad3ec16 FC1
+60e3495 MC2
+465b101 MC2
+4321569 MC1
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$

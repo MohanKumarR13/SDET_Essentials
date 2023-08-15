@@ -1,0 +1,162 @@
+
+LENOVO@jeevi MINGW64 /e/Gitproj
+$ git init
+Initialized empty Git repository in E:/Gitproj/.git/
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ touch a.txt b.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git add a.txt;git commit -m 'c1m'
+[master (root-commit) 2ef3c9b] c1m
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 a.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git add b.txt;git commit -m 'c2m'
+[master 95e5c04] c2m
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 b.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git log --oneline
+95e5c04 (HEAD -> master) c2m
+2ef3c9b c1m
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git branch feature
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git checkout feature
+Switched to branch 'feature'
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git branch
+* feature
+  master
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ echo x.txt y.txt
+x.txt y.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git add x.txt;git commit -m 'c1f'
+fatal: pathspec 'x.txt' did not match any files
+On branch feature
+nothing to commit, working tree clean
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ touch x.txt y.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git add x.txt;git commit -m 'c1f'
+[feature cd66738] c1f
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 x.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git add y.txt;git commit -m 'c2f'
+[feature 62f0c3b] c2f
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 y.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git log --oneline
+62f0c3b (HEAD -> feature) c2f
+cd66738 c1f
+95e5c04 (master) c2m
+2ef3c9b c1m
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git checkout master
+Switched to branch 'master'
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ touch c.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git add c.txt;git commit -m 'c3m'
+[master 39acf24] c3m
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 c.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git log --oneline
+39acf24 (HEAD -> master) c3m
+95e5c04 c2m
+2ef3c9b c1m
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git log --oneline master
+39acf24 (HEAD -> master) c3m
+95e5c04 c2m
+2ef3c9b c1m
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git log --oneline feature
+62f0c3b (feature) c2f
+cd66738 c1f
+95e5c04 c2m
+2ef3c9b c1m
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git branch
+  feature
+* master
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git checkout feature
+Switched to branch 'feature'
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git rebase master
+Successfully rebased and updated refs/heads/feature.
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git log --oneline master
+39acf24 (master) c3m
+95e5c04 c2m
+2ef3c9b c1m
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git log --oneline feature
+5d76920 (HEAD -> feature) c2f
+5bd71f0 c1f
+39acf24 (master) c3m
+95e5c04 c2m
+2ef3c9b c1m
+
+LENOVO@jeevi MINGW64 /e/Gitproj (feature)
+$ git checkout master
+Switched to branch 'master'
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ ls
+a.txt  b.txt  c.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git log --oneline
+39acf24 (HEAD -> master) c3m
+95e5c04 c2m
+2ef3c9b c1m
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git merge feature
+Updating 39acf24..5d76920
+Fast-forward
+ x.txt | 0
+ y.txt | 0
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 x.txt
+ create mode 100644 y.txt
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$ git log --oneline --graph
+* 5d76920 (HEAD -> master, feature) c2f
+* 5bd71f0 c1f
+* 39acf24 c3m
+* 95e5c04 c2m
+* 2ef3c9b c1m
+
+LENOVO@jeevi MINGW64 /e/Gitproj (master)
+$

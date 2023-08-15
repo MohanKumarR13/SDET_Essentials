@@ -1,0 +1,167 @@
+LENOVO@jeevi MINGW64 /d/Git Project 2
+$ git init
+Initialized empty Git repository in D:/Git Project 2/.git/
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ vim file1.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ vim file2.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ vim file3.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ ls
+file1.txt  file2.txt  file3.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git add file1.txt
+warning: in the working copy of 'file1.txt', LF will be replaced by CRLF the nex
+t time Git touches it
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git commit -m 'file1.txt'
+[master (root-commit) 528a7f2] file1.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git add file2.txt
+warning: in the working copy of 'file2.txt', LF will be replaced by CRLF the next time Git touches it
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git commit -m 'file2.txt'
+[master 51ebd8e] file2.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git add file3.txt;git commit -m 'file3.txt'
+warning: in the working copy of 'file3.txt', LF will be replaced by CRLF the next time Git touches it
+[master a09227b] file3.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file3.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ ls
+file1.txt  file2.txt  file3.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git ls-files
+file1.txt
+file2.txt
+file3.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git log --oneline
+a09227b (HEAD -> master) file3.txt
+51ebd8e file2.txt
+528a7f2 file1.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git reset --mixed 51ebd8e
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ ls
+file1.txt  file2.txt  file3.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git ls-files
+file1.txt
+file2.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git log --oneline
+51ebd8e (HEAD -> master) file2.txt
+528a7f2 file1.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git add file3.txt;git commit -m 'file3.txt again'
+warning: in the working copy of 'file3.txt', LF will be replaced by CRLF the next time Git touches it
+[master d273ca4] file3.txt again
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file3.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ ls
+file1.txt  file2.txt  file3.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git ls-files
+file1.txt
+file2.txt
+file3.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git log --oneline
+d273ca4 (HEAD -> master) file3.txt again
+51ebd8e file2.txt
+528a7f2 file1.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git reset --soft 51ebd8e
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ ls
+file1.txt  file2.txt  file3.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git ls-files
+file1.txt
+file2.txt
+file3.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git log --oneline
+51ebd8e (HEAD -> master) file2.txt
+528a7f2 file1.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git commit -m 'file 3 again'
+[master c42c697] file 3 again
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file3.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ ls
+file1.txt  file2.txt  file3.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git ls-files
+file1.txt
+file2.txt
+file3.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git log --oneline
+c42c697 (HEAD -> master) file 3 again
+51ebd8e file2.txt
+528a7f2 file1.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git reser --hard 528a7f2
+git: 'reser' is not a git command. See 'git --help'.
+
+The most similar commands are
+        reset
+        restore
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git reset --hard 528a7f2
+HEAD is now at 528a7f2 file1.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ ls
+file1.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git ls-files
+file1.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$ git log --oneline
+528a7f2 (HEAD -> master) file1.txt
+
+LENOVO@jeevi MINGW64 /d/Git Project 2 (master)
+$

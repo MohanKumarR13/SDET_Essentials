@@ -1,0 +1,79 @@
+
+LENOVO@jeevi MINGW64 /e/Gitproj
+$ git clone https://github.com/MohanKumarR13/testrepo.git
+Cloning into 'testrepo'...
+fatal: unable to access 'https://github.com/MohanKumarR13/testrepo.git/': Recv failure: Connection was reset
+
+LENOVO@jeevi MINGW64 /e/Gitproj
+$ git clone https://github.com/MohanKumarR13/testrepo.git
+Cloning into 'testrepo'...
+remote: Enumerating objects: 3, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+Receiving objects: 100% (3/3), done.
+
+LENOVO@jeevi MINGW64 /e/Gitproj
+$ cd testrepo
+
+LENOVO@jeevi MINGW64 /e/Gitproj/testrepo (main)
+$ ls
+myfile
+
+LENOVO@jeevi MINGW64 /e/Gitproj/testrepo (main)
+$ cat myfile
+My name s John from USA
+
+LENOVO@jeevi MINGW64 /e/Gitproj/testrepo (main)
+$ vim myfile
+
+LENOVO@jeevi MINGW64 /e/Gitproj/testrepo (main)
+$ vim myfile2
+
+LENOVO@jeevi MINGW64 /e/Gitproj/testrepo (main)
+$ git add .
+warning: in the working copy of 'myfile2', LF will be replaced by CRLF the next time Git touches it
+
+LENOVO@jeevi MINGW64 /e/Gitproj/testrepo (main)
+$
+
+LENOVO@jeevi MINGW64 /e/Gitproj/testrepo (main)
+$ git commit -m 'update files'
+[main 3ed79bb] update files
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+ create mode 100644 myfile2
+
+LENOVO@jeevi MINGW64 /e/Gitproj/testrepo (main)
+$ git log --oneline --graph
+* 3ed79bb (HEAD -> main) update files
+* c70f190 (origin/main, origin/HEAD) Create myfile
+
+LENOVO@jeevi MINGW64 /e/Gitproj/testrepo (main)
+$ git push origin main
+info: please complete authentication in your browser...
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 2 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (4/4), 333 bytes | 55.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/MohanKumarR13/testrepo.git
+   c70f190..3ed79bb  main -> main
+
+LENOVO@jeevi MINGW64 /e/Gitproj/testrepo (main)
+$ cat myfile2
+i am workng at developer
+
+
+LENOVO@jeevi MINGW64 /e/Gitproj/testrepo (main)
+$ git pull origin main
+From https://github.com/MohanKumarR13/testrepo
+ * branch            main       -> FETCH_HEAD
+Already up to date.
+
+LENOVO@jeevi MINGW64 /e/Gitproj/testrepo (main)
+$ cat myfile2
+i am workng at developer
+
+
+LENOVO@jeevi MINGW64 /e/Gitproj/testrepo (main)
+$
